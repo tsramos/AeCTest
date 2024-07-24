@@ -1,0 +1,39 @@
+﻿@model IEnumerable<AecTest.Core.Entities.Enderecos>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Logradouro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Cep)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Logradouro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Numero)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cep)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

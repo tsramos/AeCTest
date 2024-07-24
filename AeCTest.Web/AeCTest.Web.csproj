@@ -15,4 +15,9 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AecTest.Core\AecTest.Core.csproj" />
+    <ProjectReference Include="..\AeCTest.Infra\AeCTest.Infra.csproj" />
+  </ItemGroup>
+
 </Project>
