@@ -99,5 +99,12 @@ namespace AeCTest.Web.Controllers
             _addressService.Delete(endereco);
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> ExportCsv()
+        {
+            string? loginId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var csvStream = await _addressService.ExportCsv(loginId!);
+            return File(csvStream, "text/csv", "enderecos.csv");
+        }
     }
 }

@@ -9,6 +9,6 @@ namespace AecTest.Core.Contracts.Services
         Task<IEnumerable<Endereco>> GetAll(string? loginId);
         Endereco? GetById(Guid id);
         Task Update(Endereco endereco);
-        Task<Stream> ExportCsv();
+        Task<Stream> ExportCsv(string loginId);
     }
 }

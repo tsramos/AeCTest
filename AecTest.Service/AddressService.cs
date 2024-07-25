@@ -2,6 +2,7 @@
 using AecTest.Core.Contracts.Services;
 using AecTest.Core.Entities;
 using Microsoft.Extensions.Logging;
+using System.Text;
 
 namespace AecTest.Service
 {
@@ -25,17 +26,14 @@ namespace AecTest.Service
             Guid usuarioId = await FindUserIdAsync(loginId);
             endereco.UsuarioId = usuarioId;
             await _addressRepository.Create(endereco);
+            _logger.LogInformation($"Endereço criado com sucesso para o usuário {usuarioId}");
         }
 
         public void Delete(Endereco endereco)
         {
             _addressRepository.Delete(endereco);
-        }
-
-        public Task<Stream> ExportCsv()
-        {
-            throw new NotImplementedException();
-        }
+            _logger.LogInformation($"Endereço deletado com sucesso.");
+        }      
 
         public async Task<IEnumerable<Endereco>> GetAll(string? loginId)
         {
@@ -64,6 +62,23 @@ namespace AecTest.Service
         public async Task Update(Endereco endereco)
         {
             await _addressRepository.UpdateAsync(endereco);
-        }      
+            _logger.LogInformation($"Endereço atualizado com sucesso para o usuário {endereco.UsuarioId}");
+        }
+
+        public async Task<Stream> ExportCsv(string loginId)
+        {
+           var enderecos = await this.GetAll(loginId);
+
+            var csvBuilder = new StringBuilder();
+            csvBuilder.AppendLine("Logradouro,Numero,Complemento,Bairro,Cidade,Estado");
+
+            foreach (var endereco in enderecos)
+            {
+                csvBuilder.AppendLine($"{endereco.Logradouro};{endereco.Numero};{endereco.Complemento};{endereco.Bairro};{endereco.Cidade};{endereco.Uf}");
+            }
+
+            var csvBytes = Encoding.UTF8.GetBytes(csvBuilder.ToString());
+            return new MemoryStream(csvBytes);
+        }
     }
 }
