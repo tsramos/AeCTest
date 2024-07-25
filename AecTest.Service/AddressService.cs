@@ -70,7 +70,7 @@ namespace AecTest.Service
            var enderecos = await this.GetAll(loginId);
 
             var csvBuilder = new StringBuilder();
-            csvBuilder.AppendLine("Logradouro,Numero,Complemento,Bairro,Cidade,Estado");
+            csvBuilder.AppendLine("Logradouro;Numero;Complemento;Bairro;Cidade;Estado");
 
             foreach (var endereco in enderecos)
             {
