@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AeCTest.Web", "AeCTest.Web\AeCTest.Web.csproj", "{BF763BC8-4D84-4962-8E54-305BC8F378C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AeCTest.Web", "AeCTest.Web\AeCTest.Web.csproj", "{BF763BC8-4D84-4962-8E54-305BC8F378C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AecTest.Core", "AecTest.Core\AecTest.Core.csproj", "{2F216780-041B-426B-9625-8DDC1C7B829A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AecTest.Core", "AecTest.Core\AecTest.Core.csproj", "{2F216780-041B-426B-9625-8DDC1C7B829A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AeCTest.Infra", "AeCTest.Infra\AeCTest.Infra.csproj", "{2AB0300A-0D9D-4BAE-B91B-0A5246C91C22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AeCTest.Infra", "AeCTest.Infra\AeCTest.Infra.csproj", "{2AB0300A-0D9D-4BAE-B91B-0A5246C91C22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AecTest.Service", "AecTest.Service\AecTest.Service.csproj", "{A1BC778C-C7F3-44BE-838B-62F4E38DAD03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AecTest.Service", "AecTest.Service\AecTest.Service.csproj", "{A1BC778C-C7F3-44BE-838B-62F4E38DAD03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AecTest.Tests", "AecTest.Tests\AecTest.Tests.csproj", "{F9ED3B83-E45B-40E6-B7CC-DF217E334076}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AecTest.Tests", "AecTest.Tests\AecTest.Tests.csproj", "{F9ED3B83-E45B-40E6-B7CC-DF217E334076}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AeCTest.IOC", "AeCTest.IOC\AeCTest.IOC.csproj", "{7BCFC798-95CB-4869-9DBE-5F4B8F33F1E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{F9ED3B83-E45B-40E6-B7CC-DF217E334076}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9ED3B83-E45B-40E6-B7CC-DF217E334076}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9ED3B83-E45B-40E6-B7CC-DF217E334076}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BCFC798-95CB-4869-9DBE-5F4B8F33F1E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BCFC798-95CB-4869-9DBE-5F4B8F33F1E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BCFC798-95CB-4869-9DBE-5F4B8F33F1E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BCFC798-95CB-4869-9DBE-5F4B8F33F1E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

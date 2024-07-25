@@ -1,5 +1,6 @@
 using AecTest.Core.Entities;
 using AeCTest.Infra;
+using AeCTest.IOC;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,9 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<Context>();
 builder.Services.AddControllersWithViews();
+
+builder.Services.InjectRepositories();
+builder.Services.InjectServices();
 
 var app = builder.Build();
 

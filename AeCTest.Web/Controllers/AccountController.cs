@@ -1,4 +1,5 @@
-﻿using AecTest.Core.Entities;
+﻿using AecTest.Core.Contracts.Repository;
+using AecTest.Core.Entities;
 using AeCTest.Infra;
 using AeCTest.Web.Models;
 using Microsoft.AspNetCore.Identity;
@@ -8,16 +9,16 @@ public class AccountController : Controller
 {
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
-    private readonly Context _context;
+    private readonly IUserRepository _userRepository;
 
     public AccountController(
                              UserManager<ApplicationUser> userManager,
                              SignInManager<ApplicationUser> signInManager,
-                             Context context)
+                             IUserRepository userRepository)
     {
         _userManager = userManager;
         _signInManager = signInManager;
-        _context = context;
+        _userRepository = userRepository;
     }
 
     [HttpGet]
@@ -36,8 +37,7 @@ public class AccountController : Controller
             if (result.Succeeded)
             {                
                 var usuarios = new Usuarios { Name = model.UserName, UserId = user.Id };
-                _context.Usuarios.Add(usuarios);
-                await _context.SaveChangesAsync();
+                await _userRepository.Create(usuarios);                
 
                 await _signInManager.SignInAsync(user, isPersistent: false);
                 return RedirectToAction("Index", "Enderecos");
