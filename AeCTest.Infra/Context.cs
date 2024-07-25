@@ -10,8 +10,8 @@ namespace AeCTest.Infra
         {
         }
 
-        public DbSet<Usuarios> Usuarios { get; set; }
-        public DbSet<Enderecos> Enderecos { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Endereco> Enderecos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

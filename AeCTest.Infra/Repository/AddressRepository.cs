@@ -3,7 +3,7 @@ using AecTest.Core.Entities;
 
 namespace AeCTest.Infra.Repository
 {
-    public class AddressRepository : BaseRepository<Enderecos>, IAddressRepository
+    public class AddressRepository : BaseRepository<Endereco>, IAddressRepository
     {
         public AddressRepository(Context context) : base(context)
         {

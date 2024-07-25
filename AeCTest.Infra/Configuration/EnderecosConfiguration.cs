@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AeCTest.Infra.Configuration
 {
-    internal class EnderecosConfiguration : IEntityTypeConfiguration<Enderecos>
+    internal class EnderecosConfiguration : IEntityTypeConfiguration<Endereco>
     {
-        public void Configure(EntityTypeBuilder<Enderecos> builder)
+        public void Configure(EntityTypeBuilder<Endereco> builder)
         {
             builder.Property(a => a.Cep).IsRequired();
             builder.Property(a => a.Logradouro).IsRequired();

@@ -36,11 +36,11 @@ public class AccountController : Controller
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {                
-                var usuarios = new Usuarios { Name = model.UserName, UserId = user.Id };
+                var usuarios = new Usuario { Name = model.UserName, UserId = user.Id };
                 await _userRepository.Create(usuarios);                
 
                 await _signInManager.SignInAsync(user, isPersistent: false);
-                return RedirectToAction("Index", "Enderecos");
+                return RedirectToAction("Index", "Endereco");
             }
             foreach (var error in result.Errors)
             {
@@ -64,7 +64,7 @@ public class AccountController : Controller
             var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Enderecos");
+                return RedirectToAction("Index", "Endereco");
             }
             ModelState.AddModelError(string.Empty, "Invalid login attempt.");
         }

@@ -2,7 +2,7 @@
 
 namespace AecTest.Core.Contracts.Repository
 {
-    public interface IUserRepository : IBaseRepository<Usuarios>
+    public interface IUserRepository : IBaseRepository<Usuario>
     {
     }
 }

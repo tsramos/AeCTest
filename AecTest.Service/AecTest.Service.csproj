@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AecTest.Core\AecTest.Core.csproj" />
+  </ItemGroup>
+
 </Project>

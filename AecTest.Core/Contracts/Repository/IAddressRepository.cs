@@ -2,7 +2,7 @@
 
 namespace AecTest.Core.Contracts.Repository
 {
-    public interface IAddressRepository : IBaseRepository<Enderecos>
+    public interface IAddressRepository : IBaseRepository<Endereco>
     {
     }
 }

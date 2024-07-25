@@ -6,7 +6,7 @@ namespace AecTest.Core.Contracts.Repository
     {
         IQueryable<T> GetAll();
         Task Create(T entity);
-        Task Update(T entity);
+        Task UpdateAsync(T entity);
         void Delete(T entity);
     }
 }

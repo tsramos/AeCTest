@@ -29,7 +29,7 @@ namespace AeCTest.Infra.Repository
             return entities.AsQueryable();
         }
 
-        public async Task Update(T entity)
+        public async Task UpdateAsync(T entity)
         {
             _context.Update(entity);
             await _context.SaveChangesAsync();
