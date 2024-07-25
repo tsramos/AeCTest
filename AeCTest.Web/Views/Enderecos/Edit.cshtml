@@ -1,0 +1,66 @@
+﻿@model AeCTest.Web.Models.EnderecoViewModel
+
+@{
+    ViewData["Title"] = "Editar Endereço";
+}
+
+<h2>Editar Endereço</h2>
+
+<form asp-controller="Enderecos" asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="UsuarioId" />
+
+    <div class="form-group">
+        <label asp-for="Cep" class="control-label"></label>
+        <input asp-for="Cep" class="form-control" id="cep" onblur="BuscaCEP()" />
+        <span asp-validation-for="Cep" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Logradouro" class="control-label"></label>
+        <input asp-for="Logradouro" class="form-control" id="logradouro" />
+        <span asp-validation-for="Logradouro" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Numero" class="control-label"></label>
+        <input asp-for="Numero" class="form-control" />
+        <span asp-validation-for="Numero" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Complemento" class="control-label"></label>
+        <input asp-for="Complemento" class="form-control" />
+        <span asp-validation-for="Complemento" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Bairro" class="control-label"></label>
+        <input asp-for="Bairro" class="form-control" id="bairro" />
+        <span asp-validation-for="Bairro" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Cidade" class="control-label"></label>
+        <input asp-for="Cidade" class="form-control" id="cidade" />
+        <span asp-validation-for="Cidade" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UF" class="control-label"></label>
+        <input asp-for="UF" class="form-control" id="estado" />
+        <span asp-validation-for="UF" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Salvar" class="btn btn-primary" />
+        <a class="btn btn-secondary" href="@Url.Action("Index", "Enderecos")">Voltar</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="~/js/site.js"></script>
+}

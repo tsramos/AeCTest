@@ -1,6 +1,7 @@
 using AecTest.Core.Entities;
 using AeCTest.Infra;
 using AeCTest.IOC;
+using AeCTest.Web.Mapper;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +21,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.InjectRepositories();
 builder.Services.InjectServices();
+builder.Services.AddAutoMapper(typeof(MapperProfile));
 
 var app = builder.Build();
 

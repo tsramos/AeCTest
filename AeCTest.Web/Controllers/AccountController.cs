@@ -1,6 +1,5 @@
 ﻿using AecTest.Core.Contracts.Repository;
 using AecTest.Core.Entities;
-using AeCTest.Infra;
 using AeCTest.Web.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -40,7 +39,7 @@ public class AccountController : Controller
                 await _userRepository.Create(usuarios);                
 
                 await _signInManager.SignInAsync(user, isPersistent: false);
-                return RedirectToAction("Index", "Endereco");
+                return RedirectToAction("Index", "Enderecos");
             }
             foreach (var error in result.Errors)
             {
@@ -64,7 +63,7 @@ public class AccountController : Controller
             var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Endereco");
+                return RedirectToAction("Index", "Enderecos");
             }
             ModelState.AddModelError(string.Empty, "Invalid login attempt.");
         }

@@ -4,5 +4,6 @@ namespace AecTest.Core.Contracts.Repository
 {
     public interface IAddressRepository : IBaseRepository<Endereco>
     {
+        Endereco? GetById(Guid id);
     }
 }

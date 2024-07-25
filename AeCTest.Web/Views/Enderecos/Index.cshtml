@@ -1,37 +1,46 @@
-﻿@model IEnumerable<AecTest.Core.Entities.Endereco>
+﻿@model IEnumerable<AeCTest.Web.Models.EnderecoViewModel>
+
+@{
+    ViewData["Title"] = "Endereços";
+}
+
+<h2>Endereços</h2>
+
+<p>
+    <a class="btn btn-primary" href="@Url.Action("Create", "Enderecos")">Criar Novo Endereço</a>
+</p>
 
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().Logradouro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().Cidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().Numero)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().Cep)
-            </th>
+            <th>Logradouro</th>
+            <th>Número</th>
+            <th>Cep</th>
+            <th>Complemento</th>
+            <th>Bairro</th>
+            <th>Cidade</th>
+            <th>UF</th>
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var endereco in Model)
         {
             <tr>
+                <td>@endereco.Logradouro</td>
+                <td>@endereco.Numero</td>
+                <td>@endereco.Cep</td>
+                <td>@endereco.Complemento</td>
+                <td>@endereco.Bairro</td>
+                <td>@endereco.Cidade</td>
+                <td>@endereco.UF</td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Logradouro)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cidade)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Numero)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cep)
+                    <a class="btn btn-warning" href="@Url.Action("Edit", "Enderecos", new { id = endereco.Id })">Editar</a>
+                    <form action="@Url.Action("Delete", "Enderecos")" method="post" style="display:inline;">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@endereco.Id" />
+                        <button type="submit" class="btn btn-danger">Excluir</button>
+                    </form>
                 </td>
             </tr>
         }

@@ -5,5 +5,6 @@ namespace AecTest.Core.Contracts.Services
     public interface IUserService
     {
         Task Create(Usuario usuario);
+        Task<Guid> FindByLoginId(string loginId);
     }
 }

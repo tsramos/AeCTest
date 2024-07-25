@@ -17,5 +17,10 @@ namespace AecTest.Service
         {
             await _userRepository.Create(usuario);
         }
+
+        public Task<Guid> FindByLoginId(string loginId)
+        {
+            return _userRepository.FindByLoginIdAsync(loginId);
+        }
     }
 }
